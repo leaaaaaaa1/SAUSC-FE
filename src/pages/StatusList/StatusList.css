@@ -1,0 +1,227 @@
+/* StatusList.css */
+.status-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .status-list-naslov {
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #0906cda7;
+    font-weight: bold;
+    margin: 0;
+    padding: 20px 0;
+    background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+    font-size: 2.5rem;
+  }
+  
+  .status-list-button-row {
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .status-list-add-button {
+    background-color: #6b11cbba;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .status-list-add-button:hover {
+    background-color: #6b11cbf4;
+  }
+  
+  .status-list-table {
+    width: 60%;
+    margin: 0 auto 20px;
+    border-collapse: collapse;
+    font-size: 14px; /* Manja veličina fonta za tablicu */
+  }
+  
+  .status-list-table th,
+  .status-list-table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .status-list-table td {
+    font-size: 1rem;
+  }
+  
+  .status-list-table th {
+    background-color: #0906cd40;
+    font-weight: bold;
+    color: #0906cda7;
+    font-size: 1.5rem;
+  }
+  
+  .status-list-item {
+    background-color: #e9f5ff;
+    border-radius: 5px;
+  }
+  
+  .status-list-button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .status-list-edit-button,
+  .status-list-delete-button,
+  .status-list-save-button,
+  .status-list-back-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .status-list-edit-button,
+  .status-list-save-button,
+  .status-list-back-button {
+    background-color: #0906cd76;
+    color: white;
+  }
+  
+  .status-list-edit-button:hover,
+  .status-list-save-button:hover,
+  .status-list-back-button:hover {
+    background-color: #0906cda7;
+  }
+  
+  .status-list-delete-button {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .status-list-delete-button:hover {
+    background-color: #c0392b;
+  }
+  
+  .status-list-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 500px;
+  }
+  
+  .status-list-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  
+  .status-list-modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .status-list-modal-content label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: #0906cda7;
+  }
+  
+  .status-list-modal-content input,
+  .status-list-modal-content textarea {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 300px;
+    margin-top: 5px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .status-list-modal-content textarea {
+    resize: vertical;
+  }
+  
+  .status-list-modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .status-list-label {
+    color: #0906cda7;
+    text-align: center;
+  }
+
+  .empty-actions {
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    color: #ccc; 
+  }
+  
+  
+  @media (max-width: 768px) {
+    .status-list-table {
+      width: 100%;
+    }
+  
+    .status-list-table th,
+    .status-list-table td {
+      padding: 8px;
+    }
+  
+    .status-list-naslov {
+      font-size: 24px;
+      padding: 10px 0;
+    }
+  
+    .status-list-button-row {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .status-list-add-button {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .status-list-modal {
+      width: 90%;
+    }
+  
+    .status-list-modal-content input,
+    .status-list-modal-content textarea {
+      width: 100%;
+    }
+  }
+  

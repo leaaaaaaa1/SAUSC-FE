@@ -1,0 +1,29 @@
+.calendar-container {
+  width: 80%;
+  max-width: 1200px; 
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.calendar-title {
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #0906cda7;
+  font-weight: bold;
+  margin: 0;
+  padding: 20px 0;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.fc-toolbar-title {
+  color: #0906cda7; 
+}
+
+.fc-button-primary {
+  background-color: #0906cd76 !important;
+}
+
+.fc-button-primary:hover {
+  background-color: #0906cda7;
+}
