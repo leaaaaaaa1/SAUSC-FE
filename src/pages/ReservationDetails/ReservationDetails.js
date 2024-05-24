@@ -7,7 +7,7 @@ const ReservationDetails = () => {
   const [activities, setActivities] = useState([]);
   const [availableStartTimes, setAvailableStartTimes] = useState([]);
   const [availableEndTimes, setAvailableEndTimes] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     startTime: '',
     endTime: '',
