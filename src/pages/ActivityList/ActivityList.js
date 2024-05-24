@@ -40,9 +40,9 @@ const ActivityList = () => {
       });
 
       if (response.ok) {
-        // setActivities(
-        //   activities.filter((activity) => activity.idActivity !== idActivity)
-        // );
+        setActivities(
+          activities.filter((activity) => activity.idActivity !== idActivity)
+        );
         navigate('/activities');
       } else {
         console.error('Greška pri brisanju aktivnosti');

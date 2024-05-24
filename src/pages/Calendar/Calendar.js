@@ -75,6 +75,8 @@ const Calendar = () => {
   };
 
   useEffect(() => {
+    const randomId = 1;
+    localStorage.setItem('id', randomId);
     if (calendarRef.current) {
       const calendarApi = calendarRef.current.getApi();
       const startDate = moment(calendarApi.view.currentStart)
