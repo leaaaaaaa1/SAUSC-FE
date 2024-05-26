@@ -95,7 +95,7 @@ const ReservationList = () => {
             </p>
 
             <div className="reservation-card-actions">
-              {isFutureReservation(reservation.endTime) && (
+              {isFutureReservation(reservation.endTime) && reservation.status.idStatus === 1 &&(
                 <button
                   className="reservation-card-delete-button"
                   onClick={() => deleteReservation(reservation.idReservation)}
