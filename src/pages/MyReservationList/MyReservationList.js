@@ -8,6 +8,7 @@ const ReservationList = () => {
 
   const fetchReservations = async () => {
     const userId = localStorage.getItem('id');
+    
     if (!userId) {
       console.error('User ID not found in local storage');
       return;
