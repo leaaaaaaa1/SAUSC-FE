@@ -90,6 +90,7 @@ const ActivityList = () => {
           <tr>
             <th>Naziv</th>
             <th>Opis</th>
+            <th>Cijena</th>
             <th>Akcije</th>
           </tr>
         </thead>
@@ -98,6 +99,7 @@ const ActivityList = () => {
             <tr key={activity.idActivity} className="activity-item">
               <td>{activity.name}</td>
               <td>{activity.description}</td>
+              <td>{activity.pricePerHour}€</td>
               <td className="button-group">
                 <button
                   className="edit-button"

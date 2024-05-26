@@ -45,6 +45,34 @@ const ReservationDetails = () => {
     fetchActivities();
   }, []);
 
+  useEffect(() => {
+    const fetchAvailableStartTimes = async () => {
+      const { idActivity, startDate } = formData;
+      if (idActivity && startDate) {
+        try {
+          const response = await fetch('/api/v1/reservation/available-start-times', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ date: startDate, idActivity }),
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            setAvailableStartTimes(data.possibleTimes || []);
+          } else {
+            console.error('Error fetching available start times');
+          }
+        } catch (error) {
+          console.error('Error connecting to the API', error);
+        }
+      }
+    };
+
+    fetchAvailableStartTimes();
+  }, [formData.idActivity, formData.startDate]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -60,39 +88,6 @@ const ReservationDetails = () => {
         startTime: '',
         endTime: '',
       }));
-    }
-  };
-
-  const handleDateChange = async (e) => {
-    const selectedDate = e.target.value;
-    const { idActivity } = formData;
-    setFormData({
-      ...formData,
-      startDate: selectedDate,
-    });
-
-    if (idActivity && selectedDate) {
-      try {
-        const response = await fetch(
-          '/api/v1/reservation/available-start-times',
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ date: selectedDate, idActivity }),
-          }
-        );
-
-        if (response.ok) {
-          const data = await response.json();
-          setAvailableStartTimes(data.possibleTimes || []);
-        } else {
-          console.error('Error fetching available start times');
-        }
-      } catch (error) {
-        console.error('Error connecting to the API', error);
-      }
     }
   };
 
@@ -167,6 +162,8 @@ const ReservationDetails = () => {
     }
   };
 
+  const today = new Date().toISOString().split('T')[0];
+
   return (
     <div className="new-reservation-container">
       <h1 className="new-reservation-title">Nova Rezervacija</h1>
@@ -194,7 +191,8 @@ const ReservationDetails = () => {
             type="date"
             name="startDate"
             value={formData.startDate}
-            onChange={handleDateChange}
+            onChange={handleChange}
+            min={today}
             required
           />
         </label>
