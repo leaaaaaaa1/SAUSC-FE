@@ -35,7 +35,7 @@ const ReservationList = () => {
   const deleteReservation = async (idReservation) => {
     try {
       console.log(JSON.stringify({ idStatus: 3 }));
-      const response = await fetch(`/api/v1/reservations/${idReservation}/status`, {
+      const response = await fetch(`/api/v1/reservation/${idReservation}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
