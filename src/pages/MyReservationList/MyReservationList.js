@@ -44,9 +44,7 @@ const ReservationList = () => {
       });
 
       if (response.ok) {
-        setReservations(
-          reservations.filter((res) => res.idReservation !== idReservation)
-        );
+        fetchReservations();
         navigate('/reservations');
       } else {
         console.error('Error deleting reservation');
