@@ -31,10 +31,10 @@ const ReservationList = () => {
     fetchReservations();
   }, []);
 
-  const deleteReservation = async (idReservation) => {
+  const deleteReservation = async (reservationId) => {
     try {
       console.log(JSON.stringify({ idStatus: 3 }));
-      const response = await fetch(`/api/v1/reservations/${idReservation}`, {
+      const response = await fetch(`/api/v1/reservation/{reservationId}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ const ReservationList = () => {
 
       if (response.ok) {
         setReservations(
-          reservations.filter((res) => res.idReservation !== idReservation)
+          reservations.filter((res) => res.reservationId !== reservationId)
         );
         navigate('/reservations');
       } else {
@@ -70,8 +70,8 @@ const ReservationList = () => {
       </button>
       <div className="reservation-list-grid">
         {reservations.map((reservation) => (
-          <div key={reservation.idReservation} className="reservation-card">
-            <h2>Rezervacija #{reservation.idReservation}</h2>
+          <div key={reservation.reservationId} className="reservation-card">
+            <h2>Rezervacija #{reservation.reservationId}</h2>
             <p>
               <span className="highlight">Početak:</span>{' '}
               {new Date(reservation.startTime).toLocaleString()}
@@ -97,7 +97,7 @@ const ReservationList = () => {
               {isFutureReservation(reservation.endTime) && (
                 <button
                   className="reservation-card-delete-button"
-                  onClick={() => deleteReservation(reservation.idReservation)}
+                  onClick={() => deleteReservation(reservation.reservationId)}
                 >
                   Otkaži
                 </button>
